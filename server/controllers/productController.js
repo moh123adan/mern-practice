@@ -1,4 +1,4 @@
-import Product from "../models/productModel";
+import Product from "../models/productModel.js";
 
 const getAllProducts = async (req, res) => {
   try {
@@ -25,8 +25,9 @@ const getSingleProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
+    const image = req.file ? req.file?.filename : "";
     const { name, cost, salesPrice, quantity } = req.body;
-    const product = new Product({ name, cost, salesPrice, quantity });
+    const product = new Product({ name, cost, salesPrice, quantity, image });
     await product.save();
     res.status(201).json(product);
   } catch (error) {

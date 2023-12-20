@@ -17,6 +17,10 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    image: {
+      type: String,
+      required: true,
+    },
   },
 
   {
@@ -24,4 +28,4 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.Schema("Product", productSchema);
+export default mongoose.model("Product", productSchema);
