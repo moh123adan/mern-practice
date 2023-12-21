@@ -3,9 +3,10 @@ import dotenv from "dotenv";
 import connectDB from "./mongoDB/db.js";
 import productRouter from "./routes/productRoutes.js";
 dotenv.config();
+import cors from "cors";
 
 const app = express();
-
+app.use(cors({}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const port = process.env.port || 5000;
@@ -17,7 +18,7 @@ app.get("/", (req, res) => {
   res.send("hello server");
 });
 
-app.use("/uploads", express.static("/uploads"));
+app.use("/uploads", express.static("uploads/"));
 
 app.use("/products", productRouter);
 

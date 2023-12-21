@@ -4,10 +4,11 @@ import LoginPage from "./components/LoginPage";
 import ProductPage from "./components/ProductPage";
 import DashboardPage from "./components/DashboardPage";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 function App() {
   const state = useSelector((state) => state);
-
+  // axios.baseURL = "http://localhost:5000";
   console.log(state);
   return (
     <div>
